@@ -36,7 +36,14 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-          path: 'Lectures/Week 7 - Example-React-App'  # Adjust path if necessary
+      - name: Install dependencies
+        run: |
+          cd 'Lectures/Week 7 - Example-React-App'
+          npm install  # Ensure you're installing in the correct directory
+      - name: Build the app (if necessary)
+        run: |
+          cd 'Lectures/Week 7 - Example-React-App'
+          npm run build  # Only if you're building the app before deployment
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
